@@ -28,7 +28,29 @@ becomes C. To change a message back, each letter is replaced by the one three be
 
 
 PROGRAM :-
-
-
-
+~~~
+def caesar_cipher_encrypt(plain_text, key):
+    cipher_text = ""
+    for ch in plain_text:
+        if ch.isupper():
+            cipher_text += chr((ord(ch) - ord('A') + key) % 26 + ord('A'))
+        elif ch.islower():
+            cipher_text += chr((ord(ch) - ord('a') + key) % 26 + ord('a'))
+        else:
+            cipher_text += ch
+    return cipher_text
+def caesar_cipher_decrypt(cipher_text, key):
+    return caesar_cipher_encrypt(cipher_text, -key)
+plain = "manikandan"
+key = 3
+print("PLAIN TEXT:", plain)
+print("KEY VALUE:", key)
+encrypted = caesar_cipher_encrypt(plain, key)
+print("ENCRYPTED TEXT:", encrypted)
+decrypted = caesar_cipher_decrypt(encrypted, key)
+print("AFTER DECRYPTION:", decrypted)
+~~~
 OUTPUT :-
+<img width="1886" height="734" alt="Screenshot 2025-08-29 135427" src="https://github.com/user-attachments/assets/5131e3f7-e897-4e56-a415-3d6cadbe6eeb" />
+
+
